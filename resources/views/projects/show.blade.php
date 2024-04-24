@@ -15,7 +15,10 @@
                 
 
                 <div>
-                    <span class="{{ $project->type?->name ? 'bg-danger' : '' }} p-1">{{ $project->type?->name }}</span>
+                    <span class="badge rounded-pill {{ $project->type?->name ? 'bg-danger' : '' }}">{{ $project->type?->name }}</span>
+                    @foreach($project->technologies as $tecnology)
+                    <span class="badge rounded-pill {{ $tecnology->color == null ? 'bg-success' : $tecnology->color }}" >{{ $tecnology->name }}</span>
+                    @endforeach
                     <div class="p-1"><strong>Nome: </strong>{{$project->name}}</div>
                     <div class="p-1"><strong>Descrizione: </strong>{{$project->description}}</div>
                 </div>
