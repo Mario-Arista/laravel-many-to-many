@@ -73,7 +73,9 @@ class ProjectController extends Controller
     {
         $types = Type::all();
 
-        return view('projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        return view('projects.edit', compact('project','types', 'technologies'));
     }
 
     /**
@@ -88,6 +90,8 @@ class ProjectController extends Controller
         $project->image = $path;
 
         $project->update($request->all());
+
+        $project->technologies()->sync($request->technologies);
 
 
         return redirect()->route('admin.projects.index');

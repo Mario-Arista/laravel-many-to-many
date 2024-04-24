@@ -42,6 +42,39 @@
             </div>
 
             <div class="mb-3">
+              <label class="mb-2">Tecnologie utilizzate:</label>
+              <div class="d-flex gap-3">
+                @foreach ($technologies as $technology)
+                <div>
+                  <input 
+                    class="form-check-input" 
+                    type="checkbox"
+                    name="technologies[]"
+                    value="{{ $technology->id }}"
+                    id="technology-{{ $technology->id }}"
+
+                    @if ($errors->any())
+                      {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                    
+                        
+                    @else
+                        
+                      {{ $project->technologies->contains($technology) ? 'checked' : '' }}
+                    @endif
+
+                    
+                  >
+
+                  <label 
+                    for="technology-{{ $technology->id }}"
+                  >{{ $technology->name }}</label>
+
+                </div>  
+                @endforeach
+              </div>
+            </div>
+
+            <div class="mb-3">
                 <label for="link_github" class="form-label">Link progetto:</label>
                 <input type="text" class="form-control @error('link_github') is-invalid @enderror" id="link_github" name="link_github" value="{{ old('link_github') ?? $project->link_github }}">
                 @error('link_github')
