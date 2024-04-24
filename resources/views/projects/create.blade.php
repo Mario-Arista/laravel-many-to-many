@@ -15,7 +15,7 @@
                   @csrf
 
                   <div class="mb-3">
-                      <label for="name" class="form-label">Nome progetto</label>
+                      <label for="name" class="form-label">Nome progetto:</label>
                       <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
                       @error('name')
                       <div class="invalid-feedback">
@@ -25,7 +25,7 @@
                   </div>
 
                   <div class="mb-3">
-                    <label for="type_id" class="form-label">Tipologia</label>
+                    <label for="type_id" class="form-label">Tipologia:</label>
                     <select name="type_id" id="type_id">
                       <option value=""></option>
                       @foreach ($types as $type)
@@ -37,7 +37,29 @@
                   </div>
 
                   <div class="mb-3">
-                      <label for="link_github" class="form-label">Link progetto</label>
+                    <label class="mb-2">Tecnologie utilizzate:</label>
+                    <div class="d-flex gap-3">
+                      @foreach ($technologies as $technology)
+                      <div>
+                        <input 
+                          class="form-check-input" 
+                          type="checkbox"
+                          name="technologies[]"
+                          value="{{ $technology->id }}"
+                          id="technology-{{ $technology->id }}"
+                        >
+
+                        <label 
+                          for="technology-{{ $technology->id }}"
+                        >{{ $technology->name }}</label>
+
+                      </div>  
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                      <label for="link_github" class="form-label">Link progetto:</label>
                       <input type="text" class="form-control @error('link_github') is-invalid @enderror" id="link_github" name="link_github" value="{{ old('link_github') }}">
                       @error('link_github')
                       <div class="invalid-feedback">
@@ -46,7 +68,7 @@
                       @enderror
                   </div>
                   <div class="mb-3">
-                      <label for="image" class="form-label">Immagine di copertina</label>
+                      <label for="image" class="form-label">Immagine di copertina:</label>
                       <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
                       @error('image')
                       <div class="invalid-feedback">
@@ -55,7 +77,7 @@
                       @enderror
                   </div>
                   <div class="mb-3">
-                      <label for="description" class="form-label">Descrizione</label>
+                      <label for="description" class="form-label">Descrizione:</label>
                       <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="5">{{ old('description') }}</textarea>
                       @error('description')
                       <div class="invalid-feedback">
