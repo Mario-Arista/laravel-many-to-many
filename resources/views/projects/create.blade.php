@@ -47,6 +47,8 @@
                           name="technologies[]"
                           value="{{ $technology->id }}"
                           id="technology-{{ $technology->id }}"
+
+                          {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
                         >
 
                         <label 
