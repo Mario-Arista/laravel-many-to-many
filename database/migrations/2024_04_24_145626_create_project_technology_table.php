@@ -17,9 +17,7 @@ return new class extends Migration
             $table->foreignId('project_id')->constrained()->cascadeOnDelete();
             $table->foreignId('technology_id')->constrained()->cascadeOnDelete();
 
-            $table->primary('project_id', 'technology_id');
-
-
+            $table->primary(['project_id', 'technology_id']);
         });
     }
 

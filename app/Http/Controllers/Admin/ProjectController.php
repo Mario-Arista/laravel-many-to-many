@@ -53,6 +53,7 @@ class ProjectController extends Controller
 
         $newProject->technologies()->attach($request->technologies);
 
+
         return redirect()->route('admin.projects.show', $newProject->id);
     }
 
