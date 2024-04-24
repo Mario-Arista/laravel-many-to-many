@@ -30,15 +30,23 @@
 
             </div>
 
-            <button class="btn btn-danger mt-5" >
-                <a class="text-decoration-none text-white text-capitalize" href="{{route('admin.projects.index')}}"">{{__('Vedi i progetti caricati')}}</a>
-                
-            </button>
+            <div class="d-flex gap-3 justify-content-center">
+                <button class="btn btn-danger mt-5" >
+                    <a class="text-decoration-none text-white text-capitalize" href="{{route('admin.projects.index')}}"">{{__('Vedi i progetti caricati')}}</a>
+                </button>
+                <button class="btn btn-danger mt-5" >
+                    <a class="text-decoration-none text-white text-capitalize" href="{{route('admin.types.index')}}">{{__('Modifica Tipologie Progetti')}}</a>
+                </button>
+                <button class="btn btn-danger mt-5" >
+                    <a class="text-decoration-none text-white text-capitalize" href="{{route('admin.technologies.index')}}">{{__('Modifica Tecnologie')}}</a>
+                </button>
+            </div>
 
-            <button class="btn btn-danger mt-5" >
-                <a class="text-decoration-none text-white text-capitalize" href="{{route('admin.types.index')}}">{{__('Modifica Tipologie Progetti')}}</a>
-                
-            </button>
+
+
+
+
+
 
         </div>
     </div>

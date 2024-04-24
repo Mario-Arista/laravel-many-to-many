@@ -11,7 +11,7 @@
 
         <div class="col-lg-12 col-md-12 mb-4">
 
-            <form action="{{route('admin.types.store')}}" method="POST">
+            <form action="{{route('admin.technologies.store')}}" method="POST">
                 @csrf
 
                 <div class="mb-3">

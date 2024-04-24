@@ -45,10 +45,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item d-flex">
+
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                             <a class="nav-link" href="{{url('/admin') }}">{{ __('Dashboard') }}</a>
-                            <a class="nav-link" href="{{url('/admin/projects') }}">{{ __('Progetti caricati') }}</a>
-                            <a class="nav-link" href="{{url('/admin/types') }}">{{ __('Tipologie') }}</a>
+                            <a class="nav-link" href="{{route('admin.projects.index')}}">{{ __('Progetti caricati') }}</a>
+                            <a class="nav-link" href="{{route('admin.types.index')}}">{{ __('Tipologie') }}</a>
+                            <a class="nav-link" href="{{route('admin.technologies.index')}}">{{ __('Tecnologie') }}</a>
 
                         </li>
                     </ul>

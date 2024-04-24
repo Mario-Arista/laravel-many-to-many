@@ -11,7 +11,7 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class UpdateTechnologyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:20',
+            'color' => 'nullable|max:7'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => "Il nome della tecnologia deve avere massimo :max caratteri",
+
+            'color.max' => "Il colore deve avere :max caratteri, del tipo #000000",
+
         ];
     }
 }

@@ -15,7 +15,7 @@
                 <div>
                     <div class="p-1">
                         <h1>
-                            <strong>Nome tipogia: </strong>{{$type->name}}
+                            <strong>Nome technologia: </strong>{{$technology->name}}
                         </h1>
                         
                     </div>
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <button class="btn btn-danger mt-5 p-3">
-                    <a class="text-decoration-none text-white text-uppercase" href="{{route('admin.types.edit', $type->id)}}">{{__('Modifica tipologia')}}</a>
+                    <a class="text-decoration-none text-white text-uppercase" href="{{route('admin.technologies.edit', $technology->id)}}">{{__('Modifica tecnologia')}}</a>
                 </button>
                 <button type="button" class="btn btn-danger mt-5 text-uppercase p-3"  data-bs-toggle="modal" data-bs-target="#deleteModal">
                     {{__('Elimina tipologia')}}
@@ -45,19 +45,19 @@
                 <div class="modal-content">
 
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteModalLabel">Elimina la tipologia</h1>
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Elimina la tecnologia</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    Sei sicuro di voler eliminare questa tipologia? 
+                    Sei sicuro di voler eliminare questa tecnologia? 
                 </div>
 
 
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary p-2 fw-bold p-3 border border-0 rounded-0" data-bs-dismiss="modal">ANNULLA</button>
-                    <form action="{{route('admin.types.destroy', $type->id)}}" method="POST">
+                    <form action="{{route('admin.technologies.destroy', $technology->id)}}" method="POST">
                         @csrf
                         @method("DELETE")
             
